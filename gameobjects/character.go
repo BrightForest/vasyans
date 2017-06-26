@@ -7,11 +7,13 @@ type Character struct {
 	CharacterClassID	int
 	ClassName	string
 	AccountID	int
-	CharStats	map[string]Item
+	CharStats	map[string]*float32
+	CharInventory	map[string]*Item
 }
 
 func NewChar(Id int)  *Character{
-	var itemsmap map[string]Item
+	charstats := make(map[string]*float32)
+	charInventory := make(map[string]*Item)
 	getChar := new(Character)
 	getChar.Id = Id
 	getChar.CharName = "Vasya1"
@@ -19,6 +21,7 @@ func NewChar(Id int)  *Character{
 	getChar.CharacterClassID = 1
 	getChar.ClassName = "Warrior"
 	getChar.AccountID = 1
-	getChar.CharStats = itemsmap
+	getChar.CharStats = charstats
+	getChar.CharInventory = charInventory
 	return getChar
 }
