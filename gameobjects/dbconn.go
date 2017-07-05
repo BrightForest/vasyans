@@ -7,7 +7,7 @@ import (
 )
 
 const (
-	DATA_SOURCE_LINK	=	"postgres://testUser:8IK1q23e@creatorain.com:7100/GameServer?sslmode=disable"
+	DATA_SOURCE_LINK	=	"postgres://user:pass@host:port/GameServer?sslmode=disable"
 	PSQLDRIVER			=	"postgres"
 	GET_ACCOUNT_DATA	=	"SELECT id, accountpassword, charid FROM public.\"Accounts\" where accountlogin = $1"
 )
