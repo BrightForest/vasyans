@@ -2,7 +2,6 @@ package gameobjects
 
 import (
 	"database/sql"
-	"fmt"
 	_ "github.com/lib/pq"
 )
 
@@ -12,7 +11,11 @@ const (
 	GET_ACCOUNT_DATA	=	"SELECT id, accountpassword, charid FROM public.\"Accounts\" where accountlogin = $1"
 )
 
-func LoginInGame(accountLogin string) {
+func LoginInGame(accountLogin string) (int, string, int){
+	var idI int
+	var accountpasswordI string
+	var charidI int
+
 	dbconn, err := sql.Open(PSQLDRIVER, DATA_SOURCE_LINK)
 	checkErr(err)
 	defer dbconn.Close()
@@ -27,8 +30,11 @@ func LoginInGame(accountLogin string) {
 		var charid int
 		err = rows.Scan(&id, &accountpassword, &charid)
 		checkErr(err)
-		fmt.Printf("%3v | %8v | %6v\n", id, accountpassword, charid)
+		idI = id
+		accountpasswordI = accountpassword
+		charidI = charid
 	}
+	return idI, accountpasswordI, charidI
 }
 
 func checkErr(err error) {
