@@ -8,4 +8,6 @@ func main()  {
 	item1 := gameobjects.NewItem(1)
 	vasyan1.CharInventory["head"] = item1
 	fmt.Println(vasyan1.CharInventory["head"].ItemName)
+	fmt.Println("--------------------------------")
+	gameobjects.LoginInGame("testTwo")
 }
