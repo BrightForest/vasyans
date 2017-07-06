@@ -1,10 +1,12 @@
 package main
 
-import "fmt"
-import "./gameobjects"
+import (
+	"fmt"
+	"./gameobjects"
+)
 
 func main()  {
-	vasyan1, success := gameobjects.GetAccountCharacter("testFour", "testPass")
+	vasyan1, success := gameobjects.GetAccountCharacter("testTwo", "testPass")
 	if success == true {
 		item1 := gameobjects.NewItem(1)
 		vasyan1.CharInventory["head"] = item1
