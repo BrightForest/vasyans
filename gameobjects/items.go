@@ -1,5 +1,7 @@
 package gameobjects
 
+var ItemsCacheMap map[int]*Item
+
 type Item struct {
 	ItemInGameID	int
 	ItemBaseID	int
@@ -7,7 +9,7 @@ type Item struct {
 	ItemTypeID	int
 	WearAttribute	string
 	ItemLocation	string
-	ItemParameters	map[string]*float32
+	ItemParameters	map[string]float32
 }
 
 func NewItem(ItemBaseID int) *Item{
@@ -18,7 +20,7 @@ func NewItem(ItemBaseID int) *Item{
 	getItem.ItemTypeID = 1
 	getItem.WearAttribute = "head"
 	getItem.ItemLocation = "inventory"
-	itemParametersMap := make(map[string]*float32)
+	itemParametersMap := make(map[string]float32)
 	getItem.ItemParameters = itemParametersMap
 	return getItem
 }
